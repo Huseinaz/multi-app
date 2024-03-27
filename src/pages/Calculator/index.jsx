@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './style.css'
 
 const Calculator = () => {
@@ -21,6 +21,25 @@ const Calculator = () => {
         }
     }
 
+    useEffect(() => {
+        const handleKeyDown = (event) => {
+          const { key } = event;
+          if (/\d/.test(key) || ['+', '-', '*', '/', '.'].includes(key)) {
+            handleInput(key);
+          } else if (key === 'Enter' || key === '=') {
+            calculate();
+          } else if (key === 'Escape' || key === 'c') {
+            setDisplayValue('0');
+          }
+        };
+      
+        window.addEventListener('keydown', handleKeyDown);
+        return () => {
+          window.removeEventListener('keydown', handleKeyDown);
+        };
+      }, [handleInput, calculate]);
+      
+
     return (
         <div className='main-app'>
             <h1 className='header'>Calculator App</h1>
@@ -41,17 +60,12 @@ const Calculator = () => {
                     <button onClick={() => handleInput('-')}>-</button>
                     <button onClick={() => handleInput('.')}>.</button>
                     <button onClick={() => handleInput('0')}>0</button>
-                    <div className='clear'>
-                        <button onClick={() => setDisplayValue('0')}>C</button>
-                    </div>
+                    <button onClick={() => setDisplayValue('0')}>C</button>
                     <button onClick={() => handleInput('+')}>+</button>
-                </div>
-                <div className='operator'>
                 </div>
                 <div className='equal'>
                     <button onClick={calculate}>=</button>
                 </div>
-
             </div>
         </div>
     )

@@ -27,7 +27,7 @@ const FirstApp = () => {
                     <p>Temperature: {weather.current.apparent_temperature} {weather.current_units.apparent_temperature}</p>
                     <p>Humidity: {weather.current.relative_humidity_2m} {weather.current_units.relative_humidity_2m}</p>
                     <p>Surface Pressure: {weather.current.surface_pressure} {weather.current_units.surface_pressure}</p>
-                    <p>Wind Speed at 10m: {weather.current.wind_speed_10m} {weather.current_units.wind_speed_10m}</p>
+                    <p>Wind Speed: {weather.current.wind_speed_10m} {weather.current_units.wind_speed_10m}</p>
                 </div>
 
                 {days.map(day => (
