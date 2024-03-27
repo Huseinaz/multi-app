@@ -19,23 +19,25 @@ const FirstApp = () => {
     const days = [1, 2, 3];
 
     return (
-        <div className='weather-container'>
-            <div className='current-weather-card'>
-                <h2>Current Weather</h2>
-                <p>Temperature: {weather.current.apparent_temperature} {weather.current_units.apparent_temperature}</p>
-                <p>Humidity: {weather.current.relative_humidity_2m} {weather.current_units.relative_humidity_2m}</p>
-                <p>Surface Pressure: {weather.current.surface_pressure} {weather.current_units.surface_pressure}</p>
-                <p>Temperature at 2m: {weather.current.temperature_2m} {weather.current_units.temperature_2m}</p>
-                <p>Wind Speed at 10m: {weather.current.wind_speed_10m} {weather.current_units.wind_speed_10m}</p>
-            </div>
-
-            {days.map(day => (
-                <div key={day} className='day-weather-card'>
-                    <h2>{weather.daily.time[day]}</h2>
-                    <p>Max Temperature: {weather.daily.apparent_temperature_max[day]} {weather.daily_units.apparent_temperature_max[day]}</p>
-                    <p>Min Temperature: {weather.daily.apparent_temperature_min[day]} {weather.daily_units.apparent_temperature_min[day]}</p>
+        <div className='main'>
+            <h1 className='header'>Weather App</h1>
+            <div className='weather-container'>
+                <div className='current-weather-card'>
+                    <h2>Current Weather</h2>
+                    <p>Temperature: {weather.current.apparent_temperature} {weather.current_units.apparent_temperature}</p>
+                    <p>Humidity: {weather.current.relative_humidity_2m} {weather.current_units.relative_humidity_2m}</p>
+                    <p>Surface Pressure: {weather.current.surface_pressure} {weather.current_units.surface_pressure}</p>
+                    <p>Wind Speed at 10m: {weather.current.wind_speed_10m} {weather.current_units.wind_speed_10m}</p>
                 </div>
-            ))}
+
+                {days.map(day => (
+                    <div key={day} className='day-weather-card'>
+                        <h2>Date: {weather.daily.time[day]}</h2>
+                        <p>Max Temperature: {weather.daily.apparent_temperature_max[day]} {weather.current_units.apparent_temperature}</p>
+                        <p>Min Temperature: {weather.daily.apparent_temperature_min[day]} {weather.current_units.apparent_temperature}</p>
+                    </div>
+                ))}
+            </div>
         </div>
     );
 };
