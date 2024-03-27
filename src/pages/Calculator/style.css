@@ -1,0 +1,53 @@
+.main-app h1 {
+  color: #000;
+}
+
+.calculator {
+  width: 300px;
+  margin: 0 auto;
+  border: 2px solid #000;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.calculator input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  font-size: 24px;
+  margin-bottom: 10px;
+  border: 2px solid #000;
+  border-radius: 5px;
+}
+
+.calculator .buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5px;
+}
+
+.calculator .operator {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5px;
+}
+
+.calculator .equal {
+  display: grid;
+  grid-template-columns: repeat(1fr);
+  gap: 5px;
+}
+
+button {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  font-size: 20px;
+  margin-bottom: 10px;
+  border: 2px solid #000;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #f4f4f4;
+}
