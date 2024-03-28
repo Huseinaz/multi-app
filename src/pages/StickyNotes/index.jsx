@@ -7,7 +7,7 @@ const StickyNotes = () => {
 
     const addNote = () => {
         const newNote = {
-            id: Date.now(),
+            id: Math.floor(Math.random() * 10000) + 1,
             text: '',
         };
         setNotes([...notes, newNote]);
@@ -21,7 +21,7 @@ const StickyNotes = () => {
     return (
         <div className='container'>
             <h1>Sticky Notes App</h1>
-            <button onClick={addNote}>Add Note</button>
+            <button className='btn-add' onClick={addNote}>Add Note</button>
             <div className="sticky-note-container">
                 {notes.map((note) => (
                     <StickyNote
